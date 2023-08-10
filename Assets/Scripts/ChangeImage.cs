@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class ChangeImage : MonoBehaviour
 {
     // Start is called before the first frame update
+    public RawImage img;
     private int b = 0;
+    private bool v = false;
     void Start()
     {
         this.GetComponent<Button>().onClick.AddListener(delegate ()
@@ -16,10 +18,11 @@ public class ChangeImage : MonoBehaviour
     }
     public void OnClick_close(GameObject _obj)
     {
-        if (b < 2)
+        if (b < 5)
         {
 
-            GameObject.Find("RawImage").SetActive(false);
+            //GameObject.Find("RawImage").SetActive(false);
+            this.img.gameObject.SetActive(this.v);
         }
         else
         {
@@ -30,6 +33,7 @@ public class ChangeImage : MonoBehaviour
 #endif
         }
         this.b++;
+        this.v = !this.v;
 
         print("点击了按钮：" + _obj.name);
 
